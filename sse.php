@@ -9,7 +9,7 @@ $json = json_decode($string, true);
 
 // error_log(json_encode($json, JSON_PRETTY_PRINT));
 
-$counter = rand(1, 10);
+$counter = rand(1, 2);
 
 $photos = $json['photos'];
 
@@ -32,7 +32,7 @@ while (true) {
     echo "event: message\n";
     echo 'data: ' . json_encode(json_encode($photos[$photoIndex])) . "\n\n";
 
-    $counter = rand(1, 10);
+    $counter = rand(1, 5);
   }
 
   ob_end_flush();
