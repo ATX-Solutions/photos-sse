@@ -9,7 +9,20 @@ $json = json_decode($string, true);
 
 $photos = $json['photos'];
 
+$errorJSONString  = '{"data": null, "errors": { "message": "Something went wrong", "meta": {} }}';
+
+$errorCounter = 0;
+
 while (true) {
+  
+  if ($errorCounter == 10) {
+    echo "event: error\n";
+    echo 'data: ' . json_encode($errorJSONString) . "\n\n";
+    $errorCounter = 0;
+  }
+
+  $errorCounter++;
+  
   $photoIndex = rand(0, count($photos) - 1);
   error_log($photoIndex . json_encode($photos[$photoIndex]));
   echo "event: message\n";
@@ -20,5 +33,5 @@ while (true) {
 
   if ( connection_aborted() ) break;
 
-  sleep($photoIndex % 2 == 0 ? 0.5 : 1);
+  sleep($photoIndex % 2 == 0 ? 1.5 : 1);
 }
