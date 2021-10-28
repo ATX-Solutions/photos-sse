@@ -35,5 +35,5 @@ while (true) {
 
   if ( connection_aborted() ) break;
 
-  sleep($photoIndex % 2 == 0 ? 1.5 : 1);
+  sleep($photoIndex % 2 == 0 ? 2.5 : 1.5);
 }
