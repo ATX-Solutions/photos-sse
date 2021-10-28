@@ -19,6 +19,8 @@ while (true) {
     echo "event: error\n";
     echo 'data: ' . json_encode($errorJSONString) . "\n\n";
     $errorCounter = 0;
+    sleep(1);
+    continue;
   }
 
   $errorCounter++;
