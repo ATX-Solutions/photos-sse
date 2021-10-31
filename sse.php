@@ -13,6 +13,8 @@ $errorJSONString  = '{"data": null, "errors": { "message": "Something went wrong
 
 $errorCounter = 0;
 
+ob_start();
+
 while (true) {
   
   if ($errorCounter == 10) {
@@ -26,7 +28,6 @@ while (true) {
   $errorCounter++;
   
   $photoIndex = rand(0, count($photos) - 1);
-  error_log($photoIndex . json_encode($photos[$photoIndex]));
   echo "event: message\n";
   echo 'data: ' . json_encode(json_encode($photos[$photoIndex])) . "\n\n";
 
